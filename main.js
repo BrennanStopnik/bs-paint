@@ -49,6 +49,8 @@ while (count <= gridWidth * gridWidth) {
 // Add queries for all your squares, palette colors, and brush here.
 // (Note the singular or plural used in that sentence!)
 
+let paletteColors = document.querySelectorAll(".palette .palette-color");
+let brush = document.querySelector(".brush-icon");
 
 
 /****************************
@@ -60,6 +62,16 @@ while (count <= gridWidth * gridWidth) {
 // empty at first, though a console.log just to know they're being
 // run as event listeners (after the next step is set up) isn't a
 // bad idea for testing purposes.
+
+for (let i = 0; i < paletteColors.length; i++){
+  paletteColors[i].addEventListener('click', function(){
+    console.log(paletteColors[i]);
+  })
+}
+
+brush.addEventListener('click', function(){
+  console.log(brush);
+})
 
 
 
