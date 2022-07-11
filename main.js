@@ -15,7 +15,7 @@
  * To make the second one happen, the number to change
  * is the first argument to `repeat`, currently set at 10.
  */
-const gridWidth = 10;
+const gridWidth = 30;
 let count = 0;
 while (count <= gridWidth * gridWidth) {
   const canvas = document.querySelector('.canvas');
@@ -50,7 +50,9 @@ while (count <= gridWidth * gridWidth) {
 // (Note the singular or plural used in that sentence!)
 
 let paletteColors = document.querySelectorAll(".palette .palette-color");
-let brush = document.querySelector(".brush-icon");
+let brush = document.querySelector(".current-brush");
+let canvasArea = document.querySelectorAll(".canvas .square");
+let app = document.querySelector(".app");
 
 
 /****************************
@@ -65,7 +67,12 @@ let brush = document.querySelector(".brush-icon");
 
 for (let i = 0; i < paletteColors.length; i++){
   paletteColors[i].addEventListener('click', function(){
-    console.log(paletteColors[i]);
+    console.log(brush.classList);
+    brush.classList.replace(brush.classList[1], paletteColors[i].classList[1]);
+
+    // Alternate way to do it with add/remove
+    // brush.classList.remove(brush.classList[1]);
+    // brush.classList.add(paletteColors[i].classList[1]);
   })
 }
 
@@ -73,6 +80,39 @@ brush.addEventListener('click', function(){
   console.log(brush);
 })
 
+for (let square of canvasArea){
+//   square.addEventListener('click', function(){
+//       square.classList.replace(square.classList[1], brush.classList[1])
+//   })
+  
+  square.addEventListener('mouseover', function(){
+    if (mouseDown === true){
+      square.classList.replace(square.classList[1], brush.classList[1]);
+    }
+  })
+};
+
+let mouseDown = false;
+
+app.addEventListener('mousedown', function(){
+  console.log("click");
+  mouseDown = true;
+  console.log(`MouseDown: ${mouseDown}`);
+  
+});
+app.addEventListener('mouseup', function(){
+  console.log("unclick");
+  mouseDown = false;
+  console.log(`MouseDown: ${mouseDown}`);
+});
+
+// alternate way of doing it for the enter page.
+// document.addEventListener('mousedown', function(){
+//   console.log("click");
+// });
+// document.addEventListener('mouseup', function(){
+//   console.log("unclick");
+// });
 
 
 /**************************
