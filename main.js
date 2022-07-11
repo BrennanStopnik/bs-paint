@@ -15,12 +15,12 @@
  * To make the second one happen, the number to change
  * is the first argument to `repeat`, currently set at 10.
  */
-const gridWidth = 50;
+const gridWidth = 100;
 let count = 0;
 while (count <= gridWidth * gridWidth) {
   const canvas = document.querySelector('.canvas');
   const div = document.createElement('div');
-  div.className = 'square color-5';
+  div.className = 'square color-10';
   canvas.appendChild(div);
   count++;
 }
@@ -55,6 +55,7 @@ let canvasArea = document.querySelectorAll(".canvas .square");
 let app = document.querySelector(".app");
 
 
+
 /****************************
  * EVENT LISTENER FUNCTIONS *
 ****************************/
@@ -64,6 +65,7 @@ let app = document.querySelector(".app");
 // empty at first, though a console.log just to know they're being
 // run as event listeners (after the next step is set up) isn't a
 // bad idea for testing purposes.
+
 
 for (let i = 0; i < paletteColors.length; i++){
   paletteColors[i].addEventListener('click', function(){
@@ -113,6 +115,7 @@ app.addEventListener('mouseup', function(){
 // document.addEventListener('mouseup', function(){
 //   console.log("unclick");
 // });
+
 
 
 /**************************
